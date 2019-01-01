@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_branch_query_form.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<div id="area_form">
+	<form id="form_wmsc_base_branch" class="form">
+		<table>
+		<tr>
+			<td align='center'>
+			<label for='org_id'>仓网点id:</label>
+			</td>
+			<td>
+			<input type='text' id='org_id' name='org_id' class='easyui-numberbox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_name'>仓网点简称:</label>
+			</td>
+			<td>
+			<input type='text' id='org_name' name='org_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_full_name'>仓网点名称:</label>
+			</td>
+			<td>
+			<textarea type='text' id='org_full_name' name='org_full_name' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_level_code'>仓网点业务等级:</label>
+			</td>
+			<td>
+			<input type='text' id='org_level_code' name='org_level_code' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wh_dlry_flag'>仓配一体标识:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_dlry_flag' name='wh_dlry_flag' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_status'>仓网点状态:</label>
+			</td>
+			<td>
+			<input type='text' id='org_status' name='org_status' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_reg_time'>加盟时间:</label>
+			</td>
+			<td>
+			<input type='text' id='org_reg_time' name='org_reg_time' class='easyui-datetimebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='resp_name'>机构负责人:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_name' name='resp_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='resp_tel'>机构联系电话:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_tel' name='resp_tel' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='resp_mobile'>机构负责人手机:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_mobile' name='resp_mobile' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='resp_mail'>机构负责人邮件:</label>
+			</td>
+			<td>
+			<textarea type='text' id='resp_mail' name='resp_mail' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='resp_wx'>机构负责人微信:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_wx' name='resp_wx' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_country'>所在国家:</label>
+			</td>
+			<td>
+			<input type='text' id='org_country' name='org_country' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_province'>所在省:</label>
+			</td>
+			<td>
+			<input type='text' id='org_province' name='org_province' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_city'>所在市:</label>
+			</td>
+			<td>
+			<input type='text' id='org_city' name='org_city' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_area'>所在区:</label>
+			</td>
+			<td>
+			<input type='text' id='org_area' name='org_area' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_address'>具体地址:</label>
+			</td>
+			<td>
+			<textarea type='text' id='org_address' name='org_address' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='sup_org_id'>上级管理仓网点:</label>
+			</td>
+			<td>
+			<input type='text' id='sup_org_id' name='sup_org_id' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='longitude'>地理经度:</label>
+			</td>
+			<td>
+			<input type='text' id='longitude' name='longitude' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='latitude'>地理纬度:</label>
+			</td>
+			<td>
+			<input type='text' id='latitude' name='latitude' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+
+		</table>
+	</form>
+		<div id="icon"></div>
+	</div>
+	<div class="button-section">
+		<a id="btn_save" href="#" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
+		<a id="btn_cancel" href="#" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

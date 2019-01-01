@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_facility_query_form.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<div id="area_form">
+	<form id="form_wmsc_base_facility" class="form">
+		<table>
+		<tr>
+			<td align='center'>
+			<label for='op_equip_id'>设备id:</label>
+			</td>
+			<td>
+			<input type='text' id='op_equip_id' name='op_equip_id' class='easyui-validatebox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='wh_id'>仓库id:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_id' name='wh_id' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_org_id'>所属仓网点:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_org_id' name='mat_org_id' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='op_worker_id'>默认作业人员:</label>
+			</td>
+			<td>
+			<input type='text' id='op_worker_id' name='op_worker_id' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='register_time'>注册时间:</label>
+			</td>
+			<td>
+			<input type='text' id='register_time' name='register_time' class='easyui-datetimebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='equip_status'>设备状态:</label>
+			</td>
+			<td>
+			<input type='text' id='equip_status' name='equip_status' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='equip_vendor'>设备产商:</label>
+			</td>
+			<td>
+			<input type='text' id='equip_vendor' name='equip_vendor' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+
+		</table>
+	</form>
+		<div id="icon"></div>
+	</div>
+	<div class="button-section">
+		<a id="btn_save" href="#" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
+		<a id="btn_cancel" href="#" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

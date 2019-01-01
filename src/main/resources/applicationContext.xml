@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+	http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+    http://www.springframework.org/schema/data/repository  http://www.springframework.org/schema/data/repository/spring-repository-1.5.xsd ">
+
+		
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+	<task:annotation-driven/>  
+	
+	<!-- <bean id="inbound_call_finish_task" class="com.yd.iwms.caller.logic.IWMS_busi_inboundCaller" />
+	<bean id="outbound_call_finish_task" class="com.yd.iwms.caller.logic.IWMS_busi_outboundCaller" />
+	<task:scheduled-tasks>  
+        <task:scheduled ref="inbound_call_finish_task" method="call_finish" cron="0 0/3 * * * ?" />  
+        <task:scheduled ref="outbound_call_finish_task" method="call_finish" cron="0 0/3 * * * ?"/>  
+    </task:scheduled-tasks>  -->
+    
+	<!--  加载配置文件-->
+    <!-- <context:property-placeholder location="classpath:config.properties"/> -->
+    
+	<!--  JNDI数据源-->    
+ 	<jee:jndi-lookup id="dataSource" jndi-name="jndi_wmsc" resource-ref="true" />
+
+    <!-- SPRING JDBC -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<!-- SPRING 事务管理-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	
+	
+	
+	<!--  应用上线文初始化Bean-->
+    <bean class="com.yd.common.runtime.CIPRuntimeContextInitializer" /> 
+    
+
+	
+	<context:component-scan base-package="com.tll.wmsc,com.yd.common.function,com.yd.common.auth"  >
+	        <context:exclude-filter type="annotation" 
+	        expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+<!-- 	      spring aop definition , globally manage the system log records
+    <bean id="jcdfLogMgr" class="com.yunda.app.util.platform.springlog.JcdfLogMgr"></bean>
+     aop
+     日志统一管理 ，方法调用之前之后进行记录 
+      <aop:config>
+      	<aop:pointcut expression="execution(* com.yunda.app.controller.*.*(..))" id="perform"/>
+      	(execution (* com.yunda.app.controller.*.*(..))) OR (execution (* com.yunda.app.service.*.*(..)))
+      	<aop:pointcut id="perform" expression="(execution (* com.yunda..*.controller.*.*(..))) OR (execution (* com.yunda..*.service.*.*(..)))" /> 
+      	<aop:aspect ref="jcdfLogMgr">
+      		<aop:before method="beginLog" pointcut-ref="perform"/>
+      		<aop:after method="commitLog" pointcut-ref="perform"/>
+      		<aop:after-throwing method="logException"
+				pointcut-ref="perform" throwing="ex" />
+      	</aop:aspect>
+      </aop:config> -->
+</beans>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>用户登录</title>
+
+<link rel="stylesheet" type="text/css" href="ui/css/login.css" />
+<script type="text/javascript" src="ui/js/jquery-easyui/jquery.min.js"></script>
+<script type="text/javascript"
+	src="ui/js/jquery-easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/js/json2.js"></script>
+<script type="text/javascript" src="ui/js/MD5BASE64Encoder.js"></script>
+<script type="text/javascript" src="ui/js/jcdf-contants-1.0.js"></script>
+
+<script type="text/javascript">
+	var urlPassCode = appId+"/public/common/user/getPassCode.do?time=";
+	var urlLogin = appId+"/public/common/user/login.do";
+	var urlIndex = appId+"/ui/view/index.html?actionId=index";
+
+	 if (window != top)
+		top.location.href = location.href;
+	$(function() {
+		$("#apptitle").html(appTitle);
+		$(".copyright_r").html(version);
+		$("#passcode").html("");
+		$("#imgCode").attr("src", urlPassCode + new Date());
+		$(window).keydown(function(event) {
+			if (event.keyCode == 13) {
+				login();
+			}
+		});
+	});
+	/**
+	 * 验证登陆表单，并提交登陆数据
+	 */
+	function login() {
+		$("#errorMsg").html("");
+		var userId = $("#username").val();
+		var passCode = $("#passcode").val();		
+		var password = b64_md5($("#password").val());
+		if(userId==""||userId==null){
+			$("#errorMsg").html("用户名不能为空");
+			return false;
+		}
+		if($("#password").val()==""||$("#password").val()==null){
+			$("#errorMsg").html("密码不能为空");
+			return false;
+		}
+		if(passCode==""||passCode==null){
+			$("#errorMsg").html("验证码不能为空");
+			return false;
+		}
+		var oParameters = {
+			"user_id" : userId,
+			"pass_code" : passCode,
+			"user_pwd" : password
+		};
+
+		$.ajax({
+			url : urlLogin,
+			data : JSON.stringify(oParameters),
+			type : 'POST',
+			dataType : "json",
+			contentType : "application/json",
+			success : function(oData) {
+				var errorCode = oData.errorCode;
+				 var msg = oData.msg;
+				if (errorCode != 0) {
+					 $("#errorMsg").html(errorCode + ":" + msg);
+					setTimeout("fnChangePassCode()", 100);
+				} else {
+					window.location.href = urlIndex;
+				}
+			}
+		});
+	}
+	function fnChangePassCode() {
+		$("#imgCode").attr('src', urlPassCode + new Date());
+	}
+</script>
+</head>
+
+<body>
+	<div id="top">
+		<div id="line" style="width: 2px;height: 65px;background: #a0a0a0 ;"></div>
+		<span id="apptitle" class="apptitle"
+			style="font-size: 40px; color: #666666;"></span>
+	</div>
+	<div id="top_bom"></div>
+	<div id="main">
+		<div id="main_form">
+			<form>
+				<div style="margin-bottom: 24px;margin-top: 24px;">
+					<label name="name" class="tabs-title">账户登录</label>
+				</div>
+				<div
+					style="width:350px;height:1px;background-color:#1b1b1b;overflow:hidden;"></div>
+				<div
+					style="width:350px;height:1px;background-color:#535353;overflow:hidden;"></div>
+				<div id="main_user">
+					<input id="username" name="name" placeholder="请输入用户名" class="name"
+						required />
+				</div>
+				<div id="main_pswd">
+					<input id="password" name="password" placeholder="请输入密码"
+						class="name" type="password" required />
+				</div>
+				<div id="main_pscd">
+					<input id="passcode" name="passcode" placeholder="请输入验证码"
+						class="passcode" required />
+				</div>
+				<img id="imgCode" alt="点击刷新" style="cursor: pointer;float: left;"
+					onclick="fnChangePassCode()" />
+				 <input name="submit" class="btn"
+					type="button" value="登录" onclick="login()" />
+				 <div id="errorMsg"></div>
+			</form>
+		</div>
+	</div>
+	<div id="bottom">
+		<div id="bottom_txt"></div>
+	</div>
+	<div id="copyright">
+		<lable class="copyright_l">&copy;&nbsp;2015&nbsp;上海东普科技有限公司&nbsp;版本:<label class="copyright_r"></label></lable>
+	</div>
+</body>
+
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

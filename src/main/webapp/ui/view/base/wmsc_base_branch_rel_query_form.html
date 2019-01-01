@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_branch_rel_query_form.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<div id="area_form">
+	<form id="form_wmsc_base_branch_rel" class="form">
+		<table>
+		<tr>
+			<td align='center'>
+			<label for='sup_org_id'>上级仓网点id:</label>
+			</td>
+			<td>
+			<input type='text' id='sup_org_id' name='sup_org_id' class='easyui-numberbox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_id'>本级仓网点id:</label>
+			</td>
+			<td>
+			<input type='text' id='org_id' name='org_id' class='easyui-numberbox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='sup_level'>上级仓网点级别:</label>
+			</td>
+			<td>
+			<input type='text' id='sup_level' name='sup_level' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_level'>本级仓网点级别:</label>
+			</td>
+			<td>
+			<input type='text' id='org_level' name='org_level' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_rel_seq'>仓网点层级链:</label>
+			</td>
+			<td>
+			<textarea type='text' id='org_rel_seq' name='org_rel_seq' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+
+		</table>
+	</form>
+		<div id="icon"></div>
+	</div>
+	<div class="button-section">
+		<a id="btn_save" href="#" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
+		<a id="btn_cancel" href="#" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

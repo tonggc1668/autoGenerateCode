@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_cust_partner_query_form.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<div id="area_form">
+	<form id="form_wmsc_base_cust_partner" class="form">
+		<table>
+		<tr>
+			<td align='center'>
+			<label for='customer_id'>仓客户id:</label>
+			</td>
+			<td>
+			<input type='text' id='customer_id' name='customer_id' class='easyui-numberbox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='partner_code'>合作伙伴代码:</label>
+			</td>
+			<td>
+			<input type='text' id='partner_code' name='partner_code' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='partner_name'>合作伙伴名称:</label>
+			</td>
+			<td>
+			<textarea type='text' id='partner_name' name='partner_name' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='partner_s_name'>合作伙伴简称:</label>
+			</td>
+			<td>
+			<input type='text' id='partner_s_name' name='partner_s_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='partner_en_name'>英文名称:</label>
+			</td>
+			<td>
+			<textarea type='text' id='partner_en_name' name='partner_en_name' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='post_code'>邮编:</label>
+			</td>
+			<td>
+			<input type='text' id='post_code' name='post_code' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='partner_tel'>电话:</label>
+			</td>
+			<td>
+			<input type='text' id='partner_tel' name='partner_tel' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='partner_mobile'>手机:</label>
+			</td>
+			<td>
+			<input type='text' id='partner_mobile' name='partner_mobile' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='partner_fax'>传真:</label>
+			</td>
+			<td>
+			<input type='text' id='partner_fax' name='partner_fax' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='contactor'>联系人:</label>
+			</td>
+			<td>
+			<input type='text' id='contactor' name='contactor' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='parnter_mail'>电子邮箱:</label>
+			</td>
+			<td>
+			<textarea type='text' id='parnter_mail' name='parnter_mail' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='vendor_flag'>是否供应商:</label>
+			</td>
+			<td>
+			<input type='text' id='vendor_flag' name='vendor_flag' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='customer_flag'>是否客户:</label>
+			</td>
+			<td>
+			<input type='text' id='customer_flag' name='customer_flag' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='vend_country'>所属国家:</label>
+			</td>
+			<td>
+			<input type='text' id='vend_country' name='vend_country' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='vend_province'>所属省:</label>
+			</td>
+			<td>
+			<input type='text' id='vend_province' name='vend_province' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='vend_city'>所属市:</label>
+			</td>
+			<td>
+			<input type='text' id='vend_city' name='vend_city' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='vend_area'>所属区:</label>
+			</td>
+			<td>
+			<input type='text' id='vend_area' name='vend_area' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='vend_address'>具体地址:</label>
+			</td>
+			<td>
+			<textarea type='text' id='vend_address' name='vend_address' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='longitude'>地理经度:</label>
+			</td>
+			<td>
+			<input type='text' id='longitude' name='longitude' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='latitude'>地理纬度:</label>
+			</td>
+			<td>
+			<input type='text' id='latitude' name='latitude' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='remark'>备注:</label>
+			</td>
+			<td>
+			<textarea type='text' id='remark' name='remark' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='hint_code'>助记码:</label>
+			</td>
+			<td>
+			<input type='text' id='hint_code' name='hint_code' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='create_type'>资料生成方式:</label>
+			</td>
+			<td>
+			<input type='text' id='create_type' name='create_type' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+
+		</table>
+	</form>
+		<div id="icon"></div>
+	</div>
+	<div class="button-section">
+		<a id="btn_save" href="#" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
+		<a id="btn_cancel" href="#" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

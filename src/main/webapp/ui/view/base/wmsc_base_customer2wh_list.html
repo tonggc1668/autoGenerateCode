@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_customer2wh_list.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head> 
+<body class="easyui-layout">
+	<div data-options="region:'north', split:false, border:false">
+		<div class="area">
+			<div class="area-title">信息查询</div>
+			<div class="area-body">
+			<form id="wmsc_base_customer2wh_searchForm" class="search-form" method="post">
+				<table cellpadding="2" style="width: 100%">
+		<tr>
+			<td align='right'>
+			<label for='customer_id'>仓客户id:</label>
+			</td>
+			<td class='left'>
+			<input type='text' id='customer_id' name='customer_id' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+
+				</table>
+			</form>
+				<div class="button-section">
+							<a class="easyui-linkbutton" iconCls="icon-search" style="margin-right: 20px;" onclick="doAction('wmsc_base_customer2wh_searchData')">查询</a>
+							<a class="easyui-linkbutton" iconCls="icon-reload" style="margin-right: 20px;" onclick="searchReset()">重置</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<div data-options="region:'center', split:false, border:false">
+	<div class="area">
+	  <div class="area-title" id="listTitle"></div>
+		 <div class="area-body autoAdapt">
+			 <div id="wmsc_base_customer2wh_list_menu"></div>
+			 <table id="wmsc_base_customer2wh_list" fit="true"></table>
+		</div>
+	</div>
+</div>	
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

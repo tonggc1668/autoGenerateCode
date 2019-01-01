@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_warehouse_add_form.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<div id="area_form">
+	<form id="form_wmsc_base_warehouse" class="form">
+		<table>
+		<tr>
+			<td align='center'>
+			<label for='wh_id'>仓库id:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_id' name='wh_id' class='easyui-numberbox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='owned_org_id'>所属仓网点:</label>
+			</td>
+			<td>
+			<input type='text' id='owned_org_id' name='owned_org_id' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_name'>仓网点简称:</label>
+			</td>
+			<td>
+			<input type='text' id='org_name' name='org_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='wh_full_name'>仓库名称:</label>
+			</td>
+			<td>
+			<textarea type='text' id='wh_full_name' name='wh_full_name' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='wh_name'>仓库简称:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_name' name='wh_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_country'>所在国家:</label>
+			</td>
+			<td>
+			<input type='text' id='org_country' name='org_country' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_province'>所在省:</label>
+			</td>
+			<td>
+			<input type='text' id='org_province' name='org_province' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_city'>所在市:</label>
+			</td>
+			<td>
+			<input type='text' id='org_city' name='org_city' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='org_area'>所在区:</label>
+			</td>
+			<td>
+			<input type='text' id='org_area' name='org_area' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='org_address'>具体地址:</label>
+			</td>
+			<td>
+			<textarea type='text' id='org_address' name='org_address' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='longitude'>地理经度:</label>
+			</td>
+			<td>
+			<input type='text' id='longitude' name='longitude' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='latitude'>地理纬度:</label>
+			</td>
+			<td>
+			<input type='text' id='latitude' name='latitude' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='main_pic_id'>地理主图:</label>
+			</td>
+			<td>
+			<input type='text' id='main_pic_id' name='main_pic_id' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='sub_pic_ids'>地理副图:</label>
+			</td>
+			<td>
+			<textarea type='text' id='sub_pic_ids' name='sub_pic_ids' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='resp_name'>仓库负责人:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_name' name='resp_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='resp_tel'>仓库联系电话:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_tel' name='resp_tel' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='resp_mobile'>仓库负责人手机:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_mobile' name='resp_mobile' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='resp_mail'>仓库负责人邮件:</label>
+			</td>
+			<td>
+			<textarea type='text' id='resp_mail' name='resp_mail' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='resp_wx'>仓库负责人微信:</label>
+			</td>
+			<td>
+			<input type='text' id='resp_wx' name='resp_wx' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wh_type'>仓库类型:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_type' name='wh_type' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wh_status'>仓库业务状态:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_status' name='wh_status' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='system_use_type'>系统应用类型:</label>
+			</td>
+			<td>
+			<input type='text' id='system_use_type' name='system_use_type' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='valid_date'>仓库生效日期:</label>
+			</td>
+			<td>
+			<input type='text' id='valid_date' name='valid_date' class='easyui-datebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='invalid_date'>仓库废弃日期:</label>
+			</td>
+			<td>
+			<input type='text' id='invalid_date' name='invalid_date' class='easyui-datebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='daily_output'>日处理量:</label>
+			</td>
+			<td>
+			<input type='text' id='daily_output' name='daily_output' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wh_space'>仓库面积:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_space' name='wh_space' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='declare_space'>对外公开面积:</label>
+			</td>
+			<td>
+			<input type='text' id='declare_space' name='declare_space' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='usable_apce'>可用面积:</label>
+			</td>
+			<td>
+			<input type='text' id='usable_apce' name='usable_apce' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='actual_space'>实际面积:</label>
+			</td>
+			<td>
+			<input type='text' id='actual_space' name='actual_space' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wh_house_type'>库房类型:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_house_type' name='wh_house_type' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='rental_flag'>是否租赁:</label>
+			</td>
+			<td>
+			<input type='text' id='rental_flag' name='rental_flag' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wh_op_type'>经营模式:</label>
+			</td>
+			<td>
+			<input type='text' id='wh_op_type' name='wh_op_type' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='wms_sys_id'>wms系统id:</label>
+			</td>
+			<td>
+			<input type='text' id='wms_sys_id' name='wms_sys_id' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+
+		</table>
+	</form>
+		<div id="icon"></div>
+	</div>
+	<div class="button-section">
+		<a id="btn_save" href="#" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
+		<a id="btn_cancel" href="#" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

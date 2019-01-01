@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/gray/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../js/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/cip-page1.0.js"></script>
+	<script type="text/javascript" src="../../js/jcdf-contants-1.0.js"></script>
+	<script type="text/javascript" src="../../logic/base/wmsc_base_material_query_form.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<div id="area_form">
+	<form id="form_wmsc_base_material" class="form">
+		<table>
+		<tr>
+			<td align='center'>
+			<label for='mat_id'>货品id:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_id' name='mat_id' class='easyui-numberbox' data-options='required:true' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='customer_id'>仓客户id:</label>
+			</td>
+			<td>
+			<input type='text' id='customer_id' name='customer_id' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_code'>货品编码:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_code' name='mat_code' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_sku'>货品sku:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_sku' name='mat_sku' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_name'>货品简称:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_name' name='mat_name' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_full_name'>货品全称:</label>
+			</td>
+			<td>
+			<textarea type='text' id='mat_full_name' name='mat_full_name' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_en_name'>货品英文名:</label>
+			</td>
+			<td>
+			<textarea type='text' id='mat_en_name' name='mat_en_name' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='mat_hint_code'>货品助记码:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_hint_code' name='mat_hint_code' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_barcode'>货品条码:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_barcode' name='mat_barcode' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_gtin'>GTIN全球货品码:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_gtin' name='mat_gtin' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='consume_flag'>耗材标识:</label>
+			</td>
+			<td>
+			<input type='text' id='consume_flag' name='consume_flag' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_type'>货品类别:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_type' name='mat_type' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_spec'>规格型号:</label>
+			</td>
+			<td>
+			<textarea type='text' id='mat_spec' name='mat_spec' class='easyui-validatebox' data-options='required:false' style='height:50px;width:232px'></textarea>
+			</td>
+			<td align='center'>
+			<label for='mat_weight'>单品重量:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_weight' name='mat_weight' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_width'>货品宽:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_width' name='mat_width' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_high'>货品高:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_high' name='mat_high' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_length'>货品长:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_length' name='mat_length' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_cubage'>单品体积:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_cubage' name='mat_cubage' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_unit'>计量单位:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_unit' name='mat_unit' class='easyui-combobox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_prise'>货品单价:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_prise' name='mat_prise' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_insure_fee'>保险费:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_insure_fee' name='mat_insure_fee' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+		<tr>
+			<td align='center'>
+			<label for='mat_life_days'>货品保值期:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_life_days' name='mat_life_days' class='easyui-numberbox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+			<td align='center'>
+			<label for='mat_abc'>ABC分类:</label>
+			</td>
+			<td>
+			<input type='text' id='mat_abc' name='mat_abc' class='easyui-validatebox' data-options='required:false' style='height:26px;width:220px'/>
+			</td>
+		</tr>
+
+		</table>
+	</form>
+		<div id="icon"></div>
+	</div>
+	<div class="button-section">
+		<a id="btn_save" href="#" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
+		<a id="btn_cancel" href="#" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

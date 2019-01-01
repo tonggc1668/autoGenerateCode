@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+
+<!-- <import resource="spring-quartz.xml"/>
+
+	<mvc:annotation-driven /> 	
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+	<task:annotation-driven/>  
+    <aop:aspectj-autoproxy proxy-target-class="true"/> -->
+    
+	<!--  加载配置文件-->
+   <!--  <context:property-placeholder location="classpath:config.properties"/> -->
+    	<context:property-placeholder location="classpath:database.properties"/>
+    	
+	<!--  JNDI数据源-->    
+ 	<!-- <jee:jndi-lookup id="dataSource" jndi-name="jndi_wmsc" resource-ref="true"/> -->
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">  
+        <property name="driverClassName"><value>${jdbc.driverClassName}</value></property>  
+        <property name="url"><value>${jdbc.url}</value></property>  
+        <property name="username"><value>${jdbc.username}</value></property>  
+        <property name="password"><value>${jdbc.password}</value></property>  
+        <property name="maxActive"><value>${jdbc.maxActive}</value></property>  
+        <property name="maxIdle"><value>${jdbc.maxIdle}</value></property>  
+        <property name="maxWait"><value>${jdbc.maxWait}</value></property> 
+    </bean>  
+    
+    <!-- SPRING JDBC -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSource"/> 
+	</bean> -->
+	
+	<!-- SPRING 事务管理-->
+	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	 -->
+	
+	<!--  应用上线文初始化Bean-->
+    <!-- <bean class="com.yd.common.runtime.CIPRuntimeContextInitializer" />  -->
+	
+	
+	
+	<!-- <context:component-scan base-package="com.yd.wmsc,com.yd.common.function,com.yd.common.auth"  >
+	        <context:exclude-filter type="annotation" 
+	        expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan> -->
+
+  <!-- 异步线程池 -->  
+ <!--  <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">  
+    核心线程数   
+    <property name="corePoolSize" value="10" />  
+    最大线程数  
+    <property name="maxPoolSize" value="50" />  
+    队列最大长度 >=mainExecutor.maxSize  
+    <property name="queueCapacity" value="1000" />  
+    线程池维护线程所允许的空闲时间  
+    <property name="keepAliveSeconds" value="300" />  
+    线程池对拒绝任务(无线程可用)的处理策略  
+    <property name="rejectedExecutionHandler">  
+      <bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy" />  
+    </property>  
+  </bean>  -->
+  
+  <!-- <bean id="testAop" class="com.yd.wmsc.util.TestAop" /> -->
+  <!-- <bean id="threadPoolTest" class="com.yd.wmsc.util.threadPoolTest" init-method="excute" /> -->
+</beans>
